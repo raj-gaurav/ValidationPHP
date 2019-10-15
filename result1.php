@@ -20,7 +20,7 @@
 	<body>
 		<div class="row text-success" style="padding-left:25%;" >
 			Your request is sent to our experts. You'll be contacted soon.&nbsp;
-			<a href="validation.php">Click here</a> &nbsp;to request another query.
+			<a href="index.php">Click here</a> &nbsp;to request another query.
 		</div>
 	</body>
 </html>

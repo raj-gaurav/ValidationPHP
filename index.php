@@ -152,9 +152,16 @@
 		</div>
 	</div>
 	
+	
+	
+	
+	
+	
+	
 	<?php
 		if(isset($_POST['register']))
 		{
+			$to="rajgauravraj97@gmail.com";
 			$name=$_POST['yname'];
 			$email=$_POST['emailadd'];
 			$country=$_POST['country'];
@@ -217,11 +224,33 @@
 			}
 			else
 			{
-				?>
-				<script>
-					document.location.href='result1.php';
-				</script>
-				<?php
+				
+				$subject_to_expert="Travel Help ";
+				$message_to_expert=$name." ". "requested help regarding a travel. Details are following : country - $country, date - $date, duration - $duration, adult - $adult , child - $child, details - $detail";
+				$header_to_expert="Thank you $name";
+				
+				$subject_to_sender="Your response  to our expert about travel on $date";
+				$message_to_sender="Hello ".$name." ". "You requested help regarding your followed travel : country - $country, date - $date, duration - $duration, adult - $adult , child - $child, details - $detail";
+				$header_to_sender="Thank you $name. You response is sent to our expert. We will respond ASAP.";
+				
+				$res_expert=mail($to,$subject_to_expert,$message_to_expert,$header_to_expert);
+				$res_sender=mail($email,$subject_to_sender,$message_to_sender,$header_to_sender);
+				if($res_expert && $res_sender)
+				{
+					?>
+					<script>
+						document.location.href='result1.php';
+					</script>
+					<?phps
+				}
+				else
+				{
+					?>
+					<script>
+						alert("Something went wrong. Please try again.");
+					</script>
+					<?php
+				}
 			}
 			
 			
